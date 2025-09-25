@@ -93,6 +93,8 @@ def get_bet_amount(account):
                 display_topbar(account, **HEADER_OPTIONS)
                 cprint(MIN_BET_MSG)
                 continue
+            elif bet > account.balance:
+                raise ValueError
             return bet
         except ValueError:
             clear_screen()
